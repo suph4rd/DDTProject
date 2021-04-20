@@ -125,6 +125,7 @@ venv.bak/
 # mkdocs documentation
 /site
 
+
 # mypy
 .mypy_cache/
 .dmypy.json
@@ -141,3 +142,4 @@ cython_debug/
 
 DDDPrject/local_settings.py
 
+.idea
