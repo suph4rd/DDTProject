@@ -1,0 +1,15 @@
+{% extends "core/general.html" %}
+{% block title %}УДОДиМ{% endblock %}
+{% block content %}
+    <h1 style="text-align: center">Кадры</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <input type="submit" value="Отправить"> <br><hr>
+    </form>
+
+    {% if queryset %}
+        {% for item in queryset %}
+            <p>{{ forloop.counter }}. {{ item.name }} - {{ item.value }}</p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

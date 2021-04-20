@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <title>
+        {% block title %}
+            Методический кабинет
+        {% endblock %}
+    </title>
+</head>
+<body style="background-color: #e3f2fd; margin: 10px">
+<div class="header">
+    <div class="header-top navbar bg-light navbar-dark">
+            <img src="" alt="Эмблема организации">
+            <a class="nav-link" href="{% url "main_page" %}"><span>ГЛАВНАЯ СТРАНИЦА</span></a>
+            <a class="nav-link" href="map"><span>КАРТА</span></a>
+            <a class="nav-link" href="personal"><span>ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
+            <a class="nav-link" href="Regulations"><span>НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
+            <a class="btn btn-outline-danger" href="{% url 'logout' %}" style="float: right">Выход</a>
+    </div>
+    <div class="header-down row nav bg-light" style="margin: 1px">
+        <div class="col-sm-6">
+        <div>
+            <span>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</span> <br/>
+            <span>г.Гомель, ул.Пролетарская, 2</span> <br/>
+            <span>Email: uoggodtdum@uoggodtdum.by</span>
+        </div>
+        </div>
+        <div class="col-sm-6">
+        <div style="margin-left: 50%">
+               <b>Пользователь:</b> {{ request.user.fio }} <br/>
+               <b>Должность:</b> {{ request.user.position }}
+        </div>
+        </div>
+    </div>
+    <hr />
+</div>
+<div class="container-fuild">
+    {% block left_menu %}
+        {% if org_list %}
+            <div class="left-menu card" style="width: 15%; float: left">
+            <div class="card-header">
+                Список организаций
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for item in org_list %}
+                    <li class="list-group-item">
+                        <a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            </div>
+        {% endif %}
+    {% endblock %}
+        {% if org_list %}
+            <div class="card" style="padding: 10px; margin-left: 16%; min-height: 500px">
+        {% else %}
+            <div class="card" style="padding: 10px; min-height: 500px">
+        {% endif %}
+        {% block content %}
+            <h1 style="text-align: center">Дворец творчества детей и молодежи</h1>
+            <p><a href="{% url 'udo_view' %}">
+                1. Учреждения дополнительного образования
+            </a></p>
+            <p><a href="{% url 'staff' %}">
+                2. Кадры
+            </a></p>
+            <p><a href="">
+                3. Образовательные программы
+            </a></p>
+            <p><a href="">
+                4. Объединения по интересам
+            </a></p>
+            <p><a href="{% url 'create_team_view' %}">
+                5. Творческие коллективы
+            </a></p>
+            <p><a href="{% url 'result_participation_view' %}">
+                6. Результативность участия
+            </a></p>
+            <p><a href="">
+                7. Инновационная деятельность
+            </a></p>
+        {% endblock %}
+    </div>
+</div>
+</body>
+</html>
