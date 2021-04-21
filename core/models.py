@@ -12,6 +12,7 @@ class User(AbstractUser):
 
     class Meta:
         verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователь'
 
     @property
     def fio(self):
@@ -30,6 +31,7 @@ class OrganizationMetod(models.Model):
 
     class Meta:
         verbose_name = 'Организации методистов'
+        verbose_name_plural = 'Организации методистов'
 
     def __str__(self):
         return self.name
@@ -51,6 +53,7 @@ class Staff(models.Model):
 
     class Meta:
         verbose_name = 'Персонал'
+        verbose_name_plural = 'Персонал'
 
     def __str__(self):
         return self.name
@@ -64,6 +67,7 @@ class StaffCategory(models.Model):
 
     class Meta:
         verbose_name = 'Категории персонала'
+        verbose_name_plural = 'Категории персонала'
 
     def __str__(self):
         return self.name
@@ -76,6 +80,7 @@ class Regulations(models.Model):
 
     class Meta:
         verbose_name = 'Нормативно правовые акты'
+        verbose_name_plural = 'Нормативно правовые акты'
 
 
 class District(models.Model):
@@ -84,6 +89,7 @@ class District(models.Model):
 
     class Meta:
         verbose_name = 'Районы'
+        verbose_name_plural = 'Районы'
 
     def __str__(self):
         return self.name
@@ -97,6 +103,7 @@ class Udo(models.Model):
 
     class Meta:
         verbose_name = 'Учреждения дошкольного образования'
+        verbose_name_plural = 'Учреждения дошкольного образования'
 
     def __str__(self):
         return self.name
