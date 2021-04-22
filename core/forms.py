@@ -4,8 +4,15 @@ from django.contrib.auth.forms import AuthenticationForm
 
 
 class StaffModelForm(forms.Form):
-    type = forms.ChoiceField(choices=models.STAFF_CHOICES)
-    name = forms.ModelChoiceField(queryset=models.Staff.objects.all(), required=False)
+    type = forms.ChoiceField(
+        choices=models.STAFF_CHOICES,
+        label='Тип'
+    )
+    name = forms.ModelChoiceField(
+        queryset=models.Staff.objects.all(),
+        required=False,
+        label='Название'
+    )
 
 
 class CustomAuthenticationForm(AuthenticationForm):
