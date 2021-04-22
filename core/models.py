@@ -109,4 +109,42 @@ class Udo(models.Model):
         return self.name
 
 
+UNION_INTERES_CHOICES_TYPE = (
+    (0, "Всего"),
+    (1, "В сельской местности"),
+    (2, "По профилям деятельности")
+)
 
+# UNION_INTERES_CHOICES_PROFILE = (
+#     (0, ""),
+#     (1, "")
+# )
+
+
+class UnionInteres(models.Model):
+    """Объединения по интересам"""
+    type = models.IntegerField("Тип", choices=UNION_INTERES_CHOICES_TYPE)
+    # profile = models.IntegerField("Профиль", choices=STAFF_CHOICES)
+    profile = models.ForeignKey('UnionInteresProfile', verbose_name="Профиль", on_delete=models.CASCADE, null=True,
+                                blank=True)
+    group_value = models.PositiveIntegerField("Количество групп")
+    people_value = models.PositiveIntegerField("Количество людей")
+
+    class Meta:
+        verbose_name = 'Объединения по интересам'
+        verbose_name_plural = 'Объединения по интересам'
+
+    def __str__(self):
+        return self.get_type_display()
+
+
+class UnionInteresProfile(models.Model):
+    """Профили для объединений по интересам"""
+    name = models.CharField('Название', max_length=255)
+
+    class Meta:
+        verbose_name = 'Профили для объединений по интересам'
+        verbose_name_plural = 'Профили для объединений по интересам'
+
+    def __str__(self):
+        return self.name

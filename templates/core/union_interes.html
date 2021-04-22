@@ -1,0 +1,14 @@
+{% extends "core/general.html" %}
+{% block title %}Объединения по интересам{% endblock %}
+{% block content %}
+    <h1 style="text-align: center">Объединения по интересам</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <input type="submit" value="Отправить"> <br><hr>
+    </form>
+    {% if object %}
+        <p>Групп - {{ object.group_value }}</p>
+        <p>Учащихся - {{ object.people_value }}</p>
+    {% endif %}
+
+{% endblock %}

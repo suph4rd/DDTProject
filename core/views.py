@@ -3,7 +3,7 @@ from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
 from core import forms
 from core import models
-from core.forms import CustomAuthenticationForm
+from core.forms import CustomAuthenticationForm, UnionInteresModelForm
 
 
 def login_view(request):
@@ -66,3 +66,22 @@ def create_team_view(request):
 def result_participation_view(request):
     org_list = get_org_list(request)
     return render(request, "core/result_participation.html", locals())
+
+
+@login_required
+def union_interes_view(request):
+    org_list = get_org_list(request)
+    form = UnionInteresModelForm()
+    if not request.GET.get('type', None):
+        return render(request, "core/union_interes.html", locals())
+    form = forms.UnionInteresModelForm(request.GET)
+    object = models.UnionInteres.objects.filter(type=request.GET['type'], profile=None).last()
+    if request.GET.get('type', None) != '2':
+        return render(request, "core/union_interes.html", locals())
+    if request.GET.get('profile'):
+        object = models.UnionInteres.objects.filter(type=request.GET.get('profile')).last()
+    else:
+        object = None
+    return render(request, "core/union_interes.html", locals())
+
+

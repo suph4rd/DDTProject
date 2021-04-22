@@ -3,6 +3,14 @@ from core import models
 from django.contrib.auth.forms import AuthenticationForm
 
 
+class CustomAuthenticationForm(AuthenticationForm):
+    password = forms.CharField(
+        label="Пароль",
+        strip=False,
+        widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}),
+    )
+
+
 class StaffModelForm(forms.Form):
     type = forms.ChoiceField(
         choices=models.STAFF_CHOICES,
@@ -15,9 +23,13 @@ class StaffModelForm(forms.Form):
     )
 
 
-class CustomAuthenticationForm(AuthenticationForm):
-    password = forms.CharField(
-        label="Пароль",
-        strip=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'current-password'}),
+class UnionInteresModelForm(forms.Form):
+    type = forms.ChoiceField(
+        choices=models.UNION_INTERES_CHOICES_TYPE,
+        label='Тип'
+    )
+    profile = forms.ModelChoiceField(
+        queryset=models.UnionInteresProfile.objects.all(),
+        required=False,
+        label='Профиль'
     )
