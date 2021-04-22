@@ -1,3 +1,4 @@
+{%  load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
 <body style="background-color: #e3f2fd; margin: 10px">
 <div class="header">
     <div class="header-top navbar bg-light navbar-dark">
-            <img src="" alt="Эмблема организации">
+            <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">
             <a class="nav-link" href="{% url "main_page" %}"><span>ГЛАВНАЯ СТРАНИЦА</span></a>
             <a class="nav-link" href="map"><span>КАРТА</span></a>
             <a class="nav-link" href="personal"><span>ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
