@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'DDTmetod',
         'USER': 'DDTmetod',
         'PASSWORD': '1234',
-        'HOST': '0.0.0.0',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }

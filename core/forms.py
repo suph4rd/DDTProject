@@ -11,6 +11,23 @@ class CustomAuthenticationForm(AuthenticationForm):
     )
 
 
+class UserAdminForm(forms.ModelForm):
+    password = forms.PasswordInput()
+
+    def save(self, commit=True):
+        # Save the provided password in hashed format
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data["password"])
+        if commit:
+            user.save()
+        return user
+
+    class Meta:
+        model = models.User
+        fields = ['username', 'password', 'first_name', 'last_name', 'patronymic', 'position',
+                  'is_staff', 'is_superuser']
+
+
 class StaffModelForm(forms.Form):
     type = forms.ChoiceField(
         choices=models.STAFF_CHOICES,
