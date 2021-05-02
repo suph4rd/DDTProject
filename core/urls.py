@@ -26,7 +26,7 @@ urlpatterns = [
     path('create-team-view/', views.create_team_view, name='create_team_view'),
     path('result-participation-view/', views.result_participation_view, name='result_participation_view'),
     path('union-interes-view/', views.union_interes_view, name='union_interes_view'),
-
+    path('info-about-personal-view/', views.info_about_personal_view, name='info_about_personal_view'),
 
     # path('admin/', admin.site.urls),
 ]

@@ -85,3 +85,7 @@ def union_interes_view(request):
     return render(request, "core/union_interes.html", locals())
 
 
+@login_required
+def info_about_personal_view(request):
+    org_list = get_org_list(request)
+    return render(request, "core/info_about_personal.html", locals())
