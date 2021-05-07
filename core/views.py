@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout, login
 from django.contrib.auth.decorators import login_required
+
+from DDTProject import settings
 from core import forms
 from core import models
 from core.forms import CustomAuthenticationForm, UnionInteresModelForm
@@ -89,3 +91,11 @@ def union_interes_view(request):
 def info_about_personal_view(request):
     org_list = get_org_list(request)
     return render(request, "core/info_about_personal.html", locals())
+
+
+@login_required
+def npa_view(request):
+    org_list = get_org_list(request)
+    queryset = models.Regulations.objects.all()
+    MEDIA_URL = settings.MEDIA_URL
+    return render(request, "core/npa.html", locals())

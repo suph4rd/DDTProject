@@ -27,6 +27,5 @@ urlpatterns = [
     path('result-participation-view/', views.result_participation_view, name='result_participation_view'),
     path('union-interes-view/', views.union_interes_view, name='union_interes_view'),
     path('info-about-personal-view/', views.info_about_personal_view, name='info_about_personal_view'),
-
-    # path('admin/', admin.site.urls),
+    path('npa/', views.npa_view, name='npa_view'),
 ]

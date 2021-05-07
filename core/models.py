@@ -82,6 +82,9 @@ class Regulations(models.Model):
         verbose_name = 'Нормативно правовые акты'
         verbose_name_plural = 'Нормативно правовые акты'
 
+    def __str__(self):
+        return self.name
+
 
 class District(models.Model):
     """Районы"""
