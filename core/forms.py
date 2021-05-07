@@ -46,7 +46,7 @@ class UnionInteresModelForm(forms.Form):
         label='Тип'
     )
     profile = forms.ModelChoiceField(
-        queryset=models.UnionInteresProfile.objects.all(),
+        queryset=models.UnionInteresProfile.objects.none(),
         required=False,
         label='Профиль'
     )

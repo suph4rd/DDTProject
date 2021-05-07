@@ -57,9 +57,6 @@ def staff_view(request):
 
     name_choice_count = models.Staff.objects.filter(type=request.GET['type']).count()
     form.fields['name'].queryset = models.Staff.objects.filter(type=request.GET['type'])
-    print(form.fields['name'])
-    print(dir(form.fields['name']))
-
     name = request.GET['name'] if request.GET.get('name') not in ['', None] else None
     queryset = models.StaffCategory.objects.filter(staff=request.GET['name']) if name else None
     return render(request, "core/staff.html", locals())
@@ -83,10 +80,14 @@ def union_interes_view(request):
     form = UnionInteresModelForm()
     if not request.GET.get('type', None):
         return render(request, "core/union_interes.html", locals())
+
     form = forms.UnionInteresModelForm(request.GET)
     object = models.UnionInteres.objects.filter(type=request.GET['type'], profile=None).last()
     if request.GET.get('type', None) != '2':
         return render(request, "core/union_interes.html", locals())
+
+    profile_choice_count = models.UnionInteresProfile.objects.count()
+    form.fields['profile'].queryset = models.UnionInteresProfile.objects.all()
     if request.GET.get('profile'):
         object = models.UnionInteres.objects.filter(type=request.GET.get('profile')).last()
     else:
