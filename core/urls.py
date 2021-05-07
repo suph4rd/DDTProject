@@ -28,4 +28,5 @@ urlpatterns = [
     path('union-interes-view/', views.union_interes_view, name='union_interes_view'),
     path('info-about-personal-view/', views.info_about_personal_view, name='info_about_personal_view'),
     path('npa/', views.npa_view, name='npa_view'),
+    path('metodic-events-view/', views.metodic_events_view, name='metodic_events_view'),
 ]

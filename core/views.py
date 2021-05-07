@@ -99,3 +99,11 @@ def npa_view(request):
     queryset = models.Regulations.objects.all()
     MEDIA_URL = settings.MEDIA_URL
     return render(request, "core/npa.html", locals())
+
+
+@login_required
+def metodic_events_view(request):
+    org_list = get_org_list(request)
+    queryset = models.MetodicEvent.objects.all()
+    MEDIA_URL = settings.MEDIA_URL
+    return render(request, "core/metodic_events.html", locals())

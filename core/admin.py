@@ -11,6 +11,7 @@ admin.site.register(models.District)
 admin.site.register(models.Udo)
 admin.site.register(models.UnionInteres)
 admin.site.register(models.UnionInteresProfile)
+admin.site.register(models.MetodicEvent)
 # admin.site.register(models.User)
 
 

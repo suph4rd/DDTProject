@@ -151,3 +151,16 @@ class UnionInteresProfile(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class MetodicEvent(models.Model):
+    """Методические мероприятия(вместо инновационной деятельности)"""
+    name = models.CharField("Название", max_length=255)
+    file = models.FileField("Файл", upload_to='metodic_events/')
+
+    class Meta:
+        verbose_name = 'Методические мероприятия'
+        verbose_name_plural = 'Методические мероприятия'
+
+    def __str__(self):
+        return self.name
