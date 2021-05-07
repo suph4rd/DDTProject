@@ -49,11 +49,18 @@ def staff_view(request):
     form = forms.StaffModelForm()
     if not request.GET.get('type', None):
         return render(request, "core/staff.html", locals())
+
     form = forms.StaffModelForm(request.GET)
     queryset = models.Staff.objects.filter(type=request.GET['type'])
     if models.StaffCategory.objects.filter(staff__in=queryset.values_list('id', flat=True)).count() < 1:
         return render(request, "core/staff.html", locals())
-    name = request.GET['name'] if request.GET['name'] != '' else None
+
+    name_choice_count = models.Staff.objects.filter(type=request.GET['type']).count()
+    form.fields['name'].queryset = models.Staff.objects.filter(type=request.GET['type'])
+    print(form.fields['name'])
+    print(dir(form.fields['name']))
+
+    name = request.GET['name'] if request.GET.get('name') not in ['', None] else None
     queryset = models.StaffCategory.objects.filter(staff=request.GET['name']) if name else None
     return render(request, "core/staff.html", locals())
 
@@ -107,3 +114,9 @@ def metodic_events_view(request):
     queryset = models.MetodicEvent.objects.all()
     MEDIA_URL = settings.MEDIA_URL
     return render(request, "core/metodic_events.html", locals())
+
+
+@login_required
+def support_platform_view(request):
+    org_list = get_org_list(request)
+    return render(request, "core/support_platform.html", locals())

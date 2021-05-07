@@ -29,4 +29,6 @@ urlpatterns = [
     path('info-about-personal-view/', views.info_about_personal_view, name='info_about_personal_view'),
     path('npa/', views.npa_view, name='npa_view'),
     path('metodic-events-view/', views.metodic_events_view, name='metodic_events_view'),
+    path('support-platform/', views.support_platform_view, name='support_platform'),
+
 ]

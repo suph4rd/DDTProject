@@ -3,7 +3,10 @@
 {% block content %}
     <h1 style="text-align: center">Кадры</h1>
     <form method="get">
-        {{ form.as_p }}
+        <p>{{ form.type.label }}: {{ form.type }}</p>
+        {% if name_choice_count %}
+            <p>{{ form.name.label }}: {{ form.name }}</p>
+        {% endif %}
         <input type="submit" value="Отправить"> <br><hr>
     </form>
 

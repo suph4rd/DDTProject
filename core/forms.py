@@ -34,7 +34,7 @@ class StaffModelForm(forms.Form):
         label='Тип'
     )
     name = forms.ModelChoiceField(
-        queryset=models.Staff.objects.all(),
+        queryset=models.Staff.objects.none(),
         required=False,
         label='Название'
     )
