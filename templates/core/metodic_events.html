@@ -3,6 +3,6 @@
 {% block content %}
     <h1 style="text-align: center">Методические мероприятия</h1>
     {% for item in queryset %}
-        <a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a> <br/>
+        <p><a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
     {% endfor %}
 {% endblock %}

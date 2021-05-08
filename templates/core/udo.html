@@ -3,6 +3,6 @@
 {% block content %}
     <h1 style="text-align: center">Учреждения дополнительного образования </h1>
     {% for item in queryset %}
-        <a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br/>
+        <p><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
     {% endfor %}
 {% endblock %}
