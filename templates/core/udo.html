@@ -1,8 +1,17 @@
 {% extends "core/general.html" %}
 {% block title %}УДОДиМ{% endblock %}
 {% block content %}
-    <h1 style="text-align: center">Учреждения дополнительного образования </h1>
-    {% for item in queryset %}
-        <p><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
-    {% endfor %}
+    <h1 style="text-align: center">
+        Учреждения дополнительного образования
+        {% if district_name %}
+            <p>{{ district_name }}</p>
+        {% endif %}
+    </h1>
+    {% if queryset_count %}
+        {% for item in queryset %}
+            <p><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
+        {% endfor %}
+    {% else %}
+        <p style="margin-left: 30%">Учреждения дополнительного образования отсутствуют!</p>
+    {% endif %}
 {% endblock %}

@@ -39,7 +39,10 @@ def main_page(request):
 def udo_view(request):
     org_list = get_org_list(request)
     district = request.GET.get('district', None)
+    district_name = [x[1] for x in models.DISTRICT_CHOICE if str(x[0]) == district]
+    district_name = district_name[0] if len(district_name)==1 else None
     queryset = models.Udo.objects.filter(district=district) if district else models.Udo.objects.all()
+    queryset_count = queryset.count()
     return render(request, "core/udo.html", locals())
 
 
@@ -121,3 +124,9 @@ def metodic_events_view(request):
 def support_platform_view(request):
     org_list = get_org_list(request)
     return render(request, "core/support_platform.html", locals())
+
+
+@login_required
+def map_view(request):
+    org_list = get_org_list(request)
+    return render(request, "core/map.html", locals())

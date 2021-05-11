@@ -61,7 +61,7 @@ class Staff(models.Model):
 
 class StaffCategory(models.Model):
     """Категории персонала"""
-    staff = models.ForeignKey(Staff, on_delete=models.CASCADE)
+    staff = models.ForeignKey(Staff, verbose_name="Персонал", on_delete=models.CASCADE)
     name = models.CharField("Название", max_length=255)
     value = models.PositiveIntegerField("Значение")
 
@@ -86,21 +86,36 @@ class Regulations(models.Model):
         return self.name
 
 
-class District(models.Model):
-    """Районы"""
-    name = models.CharField("Название", max_length=255)
-
-    class Meta:
-        verbose_name = 'Районы'
-        verbose_name_plural = 'Районы'
-
-    def __str__(self):
-        return self.name
+DISTRICT_CHOICE = (
+    (1, 'Житковичский район'),
+    (2, 'Петриковский район'),
+    (3, 'Октябрьский район'),
+    (4, 'Светлогорский район'),
+    (5, 'Жлобинский район'),
+    (6, 'Рогачевский район'),
+    (7, 'Кормянский район'),
+    (8, 'Чечерский район'),
+    (9, 'Ветковский район'),
+    (10, 'Буда-Кошелёвский район'),
+    (11, 'Добрушский район'),
+    (12, 'Гомельский район'),
+    (13, 'Речицкий район'),
+    (14, 'Лоевский район'),
+    (15, 'Брагинский район'),
+    (16, 'Хойникский район'),
+    (17, 'Калинковичский район'),
+    (18, 'Наровлянский район'),
+    (19, 'Мозырский район'),
+    (20, 'Ельский район'),
+    (21, 'Лельчицкий район'),
+    (22, 'г. Гомель'),
+)
 
 
 class Udo(models.Model):
     """Учреждения дошкольного образования"""
-    district = models.ForeignKey(District, on_delete=models.CASCADE)
+    district = models.IntegerField("Район", choices=DISTRICT_CHOICE)
+    # district = models.ForeignKey(District, on_delete=models.CASCADE)
     name = models.CharField("Название", max_length=255)
     href = models.URLField("Ссылка")
 
@@ -117,11 +132,6 @@ UNION_INTERES_CHOICES_TYPE = (
     (1, "В сельской местности"),
     (2, "По профилям деятельности")
 )
-
-# UNION_INTERES_CHOICES_PROFILE = (
-#     (0, ""),
-#     (1, "")
-# )
 
 
 class UnionInteres(models.Model):

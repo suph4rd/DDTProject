@@ -26,7 +26,7 @@
     <div class="header-top navbar bg-light navbar-dark">
             <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">
         <a class="nav-link" href="{% url "main_page" %}"><span>ГЛАВНАЯ СТРАНИЦА</span></a>
-        <a class="nav-link" href=""><span>КАРТА</span></a>
+        <a class="nav-link" href="{% url 'map' %}"><span>КАРТА</span></a>
         <a class="nav-link" href="{% url 'info_about_personal_view' %}"><span>ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
         <a class="nav-link" href="{% url 'npa_view' %}"><span>НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
         <a class="btn btn-outline-danger" href="{% url 'logout' %}" style="float: right">Выход</a>
@@ -67,9 +67,9 @@
         {% endif %}
     {% endblock %}
     {% if org_list %}
-        <div class="card" style="padding: 10px; margin-left: 16%; min-height: 500px">
+        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px">
     {% else %}
-        <div class="card" style="padding: 10px; min-height: 500px">
+        <div class="card" style="padding: 10px; min-height: 800px">
     {% endif %}
     {% block content %}
         <h1 style="text-align: center">Дворец творчества детей и молодежи</h1>
@@ -96,5 +96,11 @@
         </a></p>
     {% endblock %}
     </div>
+
+    <style>
+        .card-content {
+            min-height: 800px;
+        }
+    </style>
 </body>
 </html>
