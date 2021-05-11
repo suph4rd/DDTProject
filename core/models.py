@@ -115,7 +115,6 @@ DISTRICT_CHOICE = (
 class Udo(models.Model):
     """Учреждения дошкольного образования"""
     district = models.IntegerField("Район", choices=DISTRICT_CHOICE)
-    # district = models.ForeignKey(District, on_delete=models.CASCADE)
     name = models.CharField("Название", max_length=255)
     href = models.URLField("Ссылка")
 
@@ -137,7 +136,6 @@ UNION_INTERES_CHOICES_TYPE = (
 class UnionInteres(models.Model):
     """Объединения по интересам"""
     type = models.IntegerField("Тип", choices=UNION_INTERES_CHOICES_TYPE)
-    # profile = models.IntegerField("Профиль", choices=STAFF_CHOICES)
     profile = models.ForeignKey('UnionInteresProfile', verbose_name="Профиль", on_delete=models.CASCADE, null=True,
                                 blank=True)
     group_value = models.PositiveIntegerField("Количество групп")
