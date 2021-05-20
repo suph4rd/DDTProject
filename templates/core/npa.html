@@ -1,8 +1,10 @@
 {% extends "core/general.html" %}
 {% block title %}НПА{% endblock %}
 {% block content %}
-    <h1 style="text-align: center">Нормативно-правовые акты</h1>
+    <h1 style="text-align: center; color: blue">Нормативно-правовые акты</h1>
     {% for item in queryset %}
-        <p><a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
+        <p style="color: blue">
+            <a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a>
+        </p> <br/>
     {% endfor %}
 {% endblock %}

@@ -34,9 +34,9 @@
     <div class="header-down row nav bg-light" style="margin: 1px">
         <div class="col-sm-6">
             <div>
-                <span>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</span> <br/>
-                <span>г.Гомель, ул.Пролетарская, 2</span> <br/>
-                <span>Email: uoggodtdum@uoggodtdum.by</span>
+                <span><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
+                <span><em>г.Гомель, ул.Пролетарская, 2</em></span> <br/>
+                <span><em>Email: uoggodtdum@uoggodtdum.by</em></span>
             </div>
         </div>
         <div class="col-sm-6">
@@ -72,34 +72,52 @@
         <div class="card" style="padding: 10px; min-height: 800px">
     {% endif %}
     {% block content %}
-        <h1 style="text-align: center">Дворец творчества детей и молодежи</h1>
-        <p><a href="{% url 'udo_view' %}">
-            1. Учреждения дополнительного образования
-        </a></p>
-        <p><a href="{% url 'staff' %}">
-            2. Кадры
-        </a></p>
-        <p><a href="{% url 'metodic_events_view' %}">
-            3. Методические мероприятия
-        </a></p>
-        <p><a href="{% url 'union_interes_view' %}">
-            4. Объединения по интересам
-        </a></p>
-        <p><a href="{% url 'create_team_view' %}">
-            5. Творческие коллективы
-        </a></p>
-        <p><a href="{% url 'result_participation_view' %}">
-            6. Результативность участия
-        </a></p>
-        <p><a href="{% url 'support_platform' %}">
-            7. Опорные методические площадки
-        </a></p>
+        <h1 style="text-align: center; color: blue"><em>Дворец творчества детей и молодежи</em></h1>
+        <div style="margin-left: 30px; margin-right: 30px">
+            <div class="row">
+                <div class="col"><a href="{% url 'udo_view' %}">
+                    Учреждения дополнительного образования
+                </a></div>
+                <div class="col"><a href="{% url 'staff' %}">
+                    Кадры
+                </a></div>
+                <div class="col"><a href="{% url 'metodic_events_view' %}">
+                    Методические мероприятия
+                </a></div>
+            </div>
+            <div class="row">
+                <div class="col"><a href="{% url 'union_interes_view' %}">
+                    Объединения по интересам
+                </a></div>
+                <div class="col"><a href="{% url 'create_team_view' %}">
+                    Творческие коллективы
+                </a></div>
+                <div class="col"><a href="{% url 'result_participation_view' %}">
+                    Результативность участия
+                </a ></div>
+            </div>
+            <div class="row">
+                <div class="col"><a href="{% url 'support_platform' %}">
+                    Опорные методические площадки
+                </a></div>
+            </div>
+        </div>
+
     {% endblock %}
     </div>
 
     <style>
         .card-content {
             min-height: 800px;
+        }
+        .col {
+            padding: 30px;
+            margin: 10px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 25px;
+            background-color: greenyellow;
+            border-radius: 10px;
         }
     </style>
 </body>

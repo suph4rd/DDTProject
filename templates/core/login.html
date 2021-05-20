@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <title>Вход</title>
 </head>
-<body>
-    <form method="post" style="position: absolute; width: 20%; left: 0; right: 0; margin: 0 auto">
-    <h1>Форма входа</h1>
+<body style="background-color: #e3f2fd">
+    <h1 style="text-align: center">Дворец творчества детей и молодёжи</h1>
+    <h2 style="color: blue; text-align: center">Электронный кабинет методического отдела</h2>
+    <form method="post" style="position: absolute; width: 30%; left: 0; right: 0; margin: 0 auto">
     {% if form.errors %}
       <p>{{ form.errors }}</p>
     {% endif %}
-    {{ form.as_p }}
+    <p><em>{{ form.username.label }}</em>: &nbsp{{ form.username }}</p>
+    <p><em>{{ form.password.label }}</em>:{{ form.password }}</p>
     {% csrf_token %}
-    <input type="submit" value="Войти">
+    <input style="margin-left: 30%" type="submit" value="Войти">
     </form>
 </body>
 </html>
