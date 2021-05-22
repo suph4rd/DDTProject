@@ -1,13 +1,38 @@
 version: "3.8"
 
 services:
+#  # dev
+#  web:
+#    build: .
+#    command: python manage.py runserver 0.0.0.0:8000
+#    ports:
+#      - 8000:8000
+#    depends_on:
+#      - db
+
+  #prod
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
-    ports:
-      - 8000:8000
+    command: bash -c "python manage.py makemigrations
+        && python manage.py migrate
+        && python manage.py collectstatic  --noinput
+        && gunicorn DDTProject.wsgi:application --bind 0.0.0.0:8000"
     depends_on:
       - db
+    volumes:
+      - static_volume:/usr/src/webapp/assets
+      - media_volume:/usr/src/webapp/media
+
+  #prod
+  nginx:
+    build: ./nginx
+    ports:
+      - 1337:80
+    volumes:
+      - static_volume:/usr/src/webapp/assets
+      - media_volume:/usr/src/webapp/media
+    depends_on:
+      - web
 
   db:
     image: postgres
@@ -19,3 +44,8 @@ services:
       - POSTGRES_PASSWORD=1234
     ports:
     - 5431:5432
+
+#prod
+volumes:
+  media_volume:
+  static_volume:
