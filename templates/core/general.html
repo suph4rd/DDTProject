@@ -3,17 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
+<link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.min.css' %}">
+<script src="{% static 'bootstrap4/jquery-3.3.1.slim.min.js' %}"></script>
+<script src="{% static 'bootstrap4/popper.min.js' %}"></script>
+<script src="{% static 'bootstrap4/bootstrap.min.js' %}"></script>
 
     <title>
         {% block title %}
@@ -21,17 +14,18 @@
         {% endblock %}
     </title>
 </head>
-<body style="background-color: #e3f2fd; margin: 10px">
+<body style="background-color: yellow; margin: 10px">
 <div class="header">
-    <div class="header-top navbar bg-light navbar-dark">
+    <div class="header-top navbar navbar-dark" style="background-color: #f0e68c">
             <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">
-        <a class="nav-link" href="{% url "main_page" %}"><span>ГЛАВНАЯ СТРАНИЦА</span></a>
-        <a class="nav-link" href="{% url 'map' %}"><span>КАРТА</span></a>
-        <a class="nav-link" href="{% url 'info_about_personal_view' %}"><span>ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
-        <a class="nav-link" href="{% url 'npa_view' %}"><span>НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
+{#        class="nav-link"#}
+        <a  href="{% url "main_page" %}"><span style="color: black">ГЛАВНАЯ СТРАНИЦА</span></a>
+        <a  href="{% url 'map' %}"><span style="color: black">КАРТА</span></a>
+        <a  href="{% url 'info_about_personal_view' %}"><span style="color: black">ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
+        <a  href="{% url 'npa_view' %}"><span style="color: black">НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
         <a class="btn btn-outline-danger" href="{% url 'logout' %}" style="float: right">Выход</a>
     </div>
-    <div class="header-down row nav bg-light" style="margin: 1px">
+    <div class="header-down row nav" style="margin: 1px; background-color: #f0e68c">
         <div class="col-sm-6">
             <div>
                 <span><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
@@ -51,14 +45,14 @@
 <div class="container-fuild">
     {% block left_menu %}
         {% if org_list %}
-            <div class="left-menu card" style="width: 15%; float: left">
+            <div class="left-menu card" style="width: 15%; float: left; background-color: #f0e68c">
                 <div class="card-header">
                     Список организаций
                 </div>
                 <ul class="list-group list-group-flush">
                     {% for item in org_list %}
-                        <li class="list-group-item">
-                            <a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
+                        <li class="list-group-item" style="background-color: #f0e68c">
+                            <a style="color: black" href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
                         </li>
                     {% endfor %}
                 </ul>
@@ -67,12 +61,12 @@
         {% endif %}
     {% endblock %}
     {% if org_list %}
-        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px">
+        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px; background-color: yellow">
     {% else %}
-        <div class="card" style="padding: 10px; min-height: 800px">
+        <div class="card" style="padding: 10px; min-height: 800px; background-color: yellow">
     {% endif %}
     {% block content %}
-        <h1 style="text-align: center; color: blue"><em>Дворец творчества детей и молодежи</em></h1>
+        <h1 style="text-align: center; color: black"><em>Дворец творчества детей и молодежи</em></h1>
         <div style="margin-left: 30px; margin-right: 30px">
             <div class="row">
                 <div class="col"><a href="{% url 'udo_view' %}">
@@ -118,6 +112,9 @@
             font-size: 25px;
             background-color: lightgreen;
             border-radius: 10px;
+        }
+        a {
+            color: black
         }
     </style>
 </body>
