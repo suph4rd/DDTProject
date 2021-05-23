@@ -19,24 +19,24 @@
     <div class="header-top navbar navbar-dark" style="background-color: #f0e68c; border: 1px solid lightgray; border-radius: 3px">
             <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">
 {#        class="nav-link"#}
-        <a  href="{% url "main_page" %}"><span style="color: black">ГЛАВНАЯ СТРАНИЦА</span></a>
-        <a  href="{% url 'map' %}"><span style="color: black">КАРТА</span></a>
-        <a  href="{% url 'info_about_personal_view' %}"><span style="color: black">ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
-        <a  href="{% url 'npa_view' %}"><span style="color: black">НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
+        <a  href="{% url "main_page" %}"><span style="color: black; font-family: Luminari, fantasy">ГЛАВНАЯ СТРАНИЦА</span></a>
+        <a  href="{% url 'map' %}"><span style="color: black; font-family: Luminari, fantasy">КАРТА</span></a>
+        <a  href="{% url 'info_about_personal_view' %}"><span style="color: black; font-family: Luminari, fantasy">ИНФОРМАЦИЯ О СОТРУДНИКАХ</span></a>
+        <a  href="{% url 'npa_view' %}"><span style="color: black; font-family: Luminari, fantasy">НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
         <a class="btn btn-outline-danger" href="{% url 'logout' %}" style="float: right">Выход</a>
     </div>
     <div class="header-down row nav" style="margin: 1px; background-color: #f0e68c; border: 1px solid lightgray; border-radius: 3px">
         <div class="col-sm-6">
             <div>
-                <span><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
+                <span style="font-family: FreeMono, monospace"><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
                 <span><em>г.Гомель, ул.Пролетарская, 2</em></span> <br/>
                 <span><em>Email: uoggodtdum@uoggodtdum.by</em></span>
             </div>
         </div>
         <div class="col-sm-6">
             <div style="margin-left: 50%">
-                <b>Пользователь:</b> {{ request.user.fio }} <br/>
-                <b>Должность:</b> {{ request.user.position }}
+                <b style="font-family: FreeMono, monospace">Пользователь:</b> {{ request.user.fio }} <br/>
+                <b style="font-family: FreeMono, monospace">Должность:</b> {{ request.user.position }}
             </div>
         </div>
     </div>
@@ -46,12 +46,12 @@
     {% block left_menu %}
         {% if org_list %}
             <div class="left-menu card" style="width: 15%; float: left; background-color: #f0e68c">
-                <div class="card-header">
+                <div class="card-header" style="font-family: FreeMono, monospace">
                     Список организаций
                 </div>
                 <ul class="list-group list-group-flush">
                     {% for item in org_list %}
-                        <li class="list-group-item" style="background-color: #f0e68c">
+                        <li class="list-group-item" style="background-color: #f0e68c; font-family: FreeMono, monospace">
                             <a style="color: black" href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
                         </li>
                     {% endfor %}
@@ -66,32 +66,32 @@
         <div class="card" style="padding: 10px; min-height: 800px; background-color: yellow">
     {% endif %}
     {% block content %}
-        <h1 style="text-align: center; color: black"><em>Дворец творчества детей и молодежи</em></h1>
+        <h1 style="text-align: center; color: black; font-family: Luminari, fantasy"><em>Дворец творчества детей и молодежи</em></h1>
         <div style="margin-left: 30px; margin-right: 30px">
             <div class="row">
-                <div class="col" style="background-color: #cd00cd"><a href="{% url 'udo_view' %}">
+                <div class="col" style="background-color: #cd00cd; font-family: FreeMono, monospace"><a href="{% url 'udo_view' %}">
                     Учреждения дополнительного образования
                 </a></div>
-                <div class="col" style="background-color: #52cc00"><a href="{% url 'staff' %}">
+                <div class="col" style="background-color: #52cc00; font-family: FreeMono, monospace"><a href="{% url 'staff' %}">
                     Кадры
                 </a></div>
-                <div class="col" style="background-color: #40cfff"><a href="{% url 'metodic_events_view' %}">
+                <div class="col" style="background-color: #40cfff; font-family: FreeMono, monospace"><a href="{% url 'metodic_events_view' %}">
                     Методические мероприятия
                 </a></div>
             </div>
             <div class="row">
-                <div class="col" style="background-color: lightgreen"><a href="{% url 'union_interes_view' %}">
+                <div class="col" style="background-color: lightgreen; font-family: FreeMono, monospace"><a href="{% url 'union_interes_view' %}">
                     Объединения по интересам
                 </a></div>
-                <div class="col" style="background-color: blue"><a href="{% url 'create_team_view' %}">
+                <div class="col" style="background-color: blue; font-family: FreeMono, monospace"><a href="{% url 'create_team_view' %}">
                     Творческие коллективы
                 </a></div>
-                <div class="col" style="background-color: #6be619"><a href="{% url 'result_participation_view' %}">
+                <div class="col" style="background-color: #6be619; font-family: FreeMono, monospace"><a href="{% url 'result_participation_view' %}">
                     Результативность участия
                 </a ></div>
             </div>
             <div class="row">
-                <div class="col" style="background-color: hotpink"><a href="{% url 'support_platform' %}">
+                <div class="col" style="background-color: hotpink; font-family: FreeMono, monospace"><a href="{% url 'support_platform' %}">
                     Опорные методические площадки
                 </a></div>
             </div>
