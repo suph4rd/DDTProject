@@ -16,7 +16,7 @@
 </head>
 <body style="background-color: yellow; margin: 10px">
 <div class="header">
-    <div class="header-top navbar navbar-dark" style="background-color: #f0e68c">
+    <div class="header-top navbar navbar-dark" style="background-color: #f0e68c; border: 1px solid lightgray; border-radius: 3px">
             <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">
 {#        class="nav-link"#}
         <a  href="{% url "main_page" %}"><span style="color: black">ГЛАВНАЯ СТРАНИЦА</span></a>
@@ -25,7 +25,7 @@
         <a  href="{% url 'npa_view' %}"><span style="color: black">НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
         <a class="btn btn-outline-danger" href="{% url 'logout' %}" style="float: right">Выход</a>
     </div>
-    <div class="header-down row nav" style="margin: 1px; background-color: #f0e68c">
+    <div class="header-down row nav" style="margin: 1px; background-color: #f0e68c; border: 1px solid lightgray; border-radius: 3px">
         <div class="col-sm-6">
             <div>
                 <span><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
