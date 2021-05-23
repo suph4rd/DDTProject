@@ -17,7 +17,8 @@ class UserAdminForm(forms.ModelForm):
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super().save(commit=False)
-        user.set_password(self.cleaned_data["password"])
+        if user.password != self.cleaned_data["password"]:
+            user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()
         return user

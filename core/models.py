@@ -63,7 +63,7 @@ class StaffCategory(models.Model):
     """Категории персонала"""
     staff = models.ForeignKey(Staff, verbose_name="Персонал", on_delete=models.CASCADE)
     name = models.CharField("Название", max_length=255)
-    value = models.PositiveIntegerField("Значение")
+    value = models.PositiveIntegerField("Значение", null=True, blank=True)
 
     class Meta:
         verbose_name = 'Категории персонала'
