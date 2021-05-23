@@ -1,15 +1,20 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'bootstrap4/bootstrap.min.css' %}">
+    <script src="{% static 'bootstrap4/jquery-3.3.1.slim.min.js' %}"></script>
+    <script src="{% static 'bootstrap4/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap4/bootstrap.min.js' %}"></script>
     <title>Вход</title>
 </head>
-<body style="background-color: #e3f2fd">
+<body style="background-color: yellow">
     <h1 style="text-align: center">Дворец творчества детей и молодёжи</h1>
-    <h2 style="color: blue; text-align: center">Электронный кабинет методического отдела</h2>
+    <h2 style="color: black; text-align: center">Электронный кабинет методического отдела</h2>
     <form method="post" style="position: absolute; width: 30%; left: 0; right: 0; margin: 0 auto">
     {% if form.errors %}
-      <p>{{ form.errors }}</p>
+        <div class="alert alert-danger" role="alert">{{ form.non_field_errors }}</div>
     {% endif %}
     <p><em>{{ form.username.label }}</em>: &nbsp{{ form.username }}</p>
     <p><em>{{ form.password.label }}</em>:{{ form.password }}</p>

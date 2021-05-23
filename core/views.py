@@ -14,6 +14,8 @@ def login_view(request):
         if form.is_valid():
             login(request, form.get_user())
             return redirect('main_page')
+        else:
+            return render(request, "core/login.html", locals())
     form = CustomAuthenticationForm(request.POST or None)
     return render(request, "core/login.html", locals())
 

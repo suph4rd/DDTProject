@@ -69,29 +69,29 @@
         <h1 style="text-align: center; color: black"><em>Дворец творчества детей и молодежи</em></h1>
         <div style="margin-left: 30px; margin-right: 30px">
             <div class="row">
-                <div class="col"><a href="{% url 'udo_view' %}">
+                <div class="col" style="background-color: #cd00cd"><a href="{% url 'udo_view' %}">
                     Учреждения дополнительного образования
                 </a></div>
-                <div class="col"><a href="{% url 'staff' %}">
+                <div class="col" style="background-color: #52cc00"><a href="{% url 'staff' %}">
                     Кадры
                 </a></div>
-                <div class="col"><a href="{% url 'metodic_events_view' %}">
+                <div class="col" style="background-color: #40cfff"><a href="{% url 'metodic_events_view' %}">
                     Методические мероприятия
                 </a></div>
             </div>
             <div class="row">
-                <div class="col"><a href="{% url 'union_interes_view' %}">
+                <div class="col" style="background-color: lightgreen"><a href="{% url 'union_interes_view' %}">
                     Объединения по интересам
                 </a></div>
-                <div class="col"><a href="{% url 'create_team_view' %}">
+                <div class="col" style="background-color: blue"><a href="{% url 'create_team_view' %}">
                     Творческие коллективы
                 </a></div>
-                <div class="col"><a href="{% url 'result_participation_view' %}">
+                <div class="col" style="background-color: #6be619"><a href="{% url 'result_participation_view' %}">
                     Результативность участия
                 </a ></div>
             </div>
             <div class="row">
-                <div class="col"><a href="{% url 'support_platform' %}">
+                <div class="col" style="background-color: hotpink"><a href="{% url 'support_platform' %}">
                     Опорные методические площадки
                 </a></div>
             </div>
@@ -105,17 +105,25 @@
             min-height: 800px;
         }
         .col {
-            padding: 30px;
-            margin: 10px;
+            margin-bottom: 15px;
             border: 1px solid black;
             text-align: center;
             font-size: 25px;
             background-color: lightgreen;
-            border-radius: 10px;
+            border-radius: 3px;
         }
         a {
             color: black
         }
     </style>
+
+    <script>
+        $(".col").on('mouseover', function(event) {
+            event.currentTarget.style.padding ="10px"
+        });
+        $(".col").on('mouseout', function(event) {
+            event.currentTarget.style.padding ="0px"
+        });
+    </script>
 </body>
 </html>
