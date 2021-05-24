@@ -2,9 +2,11 @@
 {% block title %}НПА{% endblock %}
 {% block content %}
     <h1 style="text-align: center; color: black; font-family: Luminari, fantasy">Нормативно-правовые акты</h1>
+    <div style="font-size: 25px">
     {% for item in queryset %}
-        <p style="color: blue">
+        <p style="font-family: FreeMono, monospace">
             <a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a>
         </p> <br/>
     {% endfor %}
+    </div>
 {% endblock %}

@@ -14,7 +14,7 @@
         {% endblock %}
     </title>
 </head>
-<body style="background-color: yellow; margin: 10px">
+<body style="background-image: url('http://0.0.0.0:8000/static/icons/background.jpg'); background-size: cover; margin: 10px">
 <div class="header">
     <div class="header-top navbar navbar-dark" style="background-color: #f0e68c; border: 1px solid lightgray; border-radius: 3px">
             <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">
@@ -61,9 +61,9 @@
         {% endif %}
     {% endblock %}
     {% if org_list %}
-        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px; background-color: yellow">
+        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px; background-image: url('http://0.0.0.0:8000/static/icons/background.jpg'); background-size: cover;">
     {% else %}
-        <div class="card" style="padding: 10px; min-height: 800px; background-color: yellow">
+        <div class="card" style="padding: 10px; min-height: 800px; background-image: url('http://0.0.0.0:8000/static/icons/background.jpg'); background-size: cover;>
     {% endif %}
     {% block content %}
         <h1 style="text-align: center; color: black; font-family: Luminari, fantasy"><em>Дворец творчества детей и молодежи</em></h1>
