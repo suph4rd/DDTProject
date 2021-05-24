@@ -61,9 +61,9 @@
         {% endif %}
     {% endblock %}
     {% if org_list %}
-        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px; background-image: url('http://0.0.0.0:8000/static/icons/background.jpg'); background-size: cover;">
+        <div class="card card-content" style="padding: 10px; margin-left: 16%; min-height: 800px; background-image: url({% static 'icons/background.jpg' %}); background-size: cover;">
     {% else %}
-        <div class="card" style="padding: 10px; min-height: 800px; background-image: url('http://0.0.0.0:8000/static/icons/background.jpg'); background-size: cover;>
+        <div class="card" style="padding: 10px; min-height: 800px; background-image: url({% static 'icons/background.jpg' %}); background-size: cover;">
     {% endif %}
     {% block content %}
         <h1 style="text-align: center; color: black; font-family: Luminari, fantasy"><em>Дворец творчества детей и молодежи</em></h1>
