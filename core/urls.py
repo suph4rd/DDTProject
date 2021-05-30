@@ -31,5 +31,6 @@ urlpatterns = [
     path('metodic-events-view/', views.metodic_events_view, name='metodic_events_view'),
     path('support-platform/', views.support_platform_view, name='support_platform'),
     path('map/', views.map_view, name='map'),
+    path('list-organizations/', views.list_organization_view, name='list_organization_view'),
 
 ]

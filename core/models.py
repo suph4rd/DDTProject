@@ -20,7 +20,7 @@ class User(AbstractUser):
         return f"{self.first_name} {self.last_name} {self.patronymic}"
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} {self.patronymic}"
+        return f"{self.first_name} {self.last_name} {self.patronymic} ({self.username})"
 
 
 class OrganizationMetod(models.Model):

@@ -1,7 +1,7 @@
 {% extends "core/general.html" %}
 {% block title %}УДОДиМ{% endblock %}
-{% block content %}
-    <h1 style="text-align: center; font-family: Luminari, fantasy">Кадры</h1>
+{% block second_menu %}
+    <h1 class="center luminari bolt">Кадры</h1>
     <form method="get">
         <p>{{ form.type.label }}: {{ form.type }}</p>
         {% if name_choice_count %}
@@ -12,7 +12,7 @@
 
     {% if queryset %}
         {% for item in queryset %}
-            <p style="font-family: FreeMono, monospace">{{ forloop.counter }}. {{ item.name }} - {{ item.value }}</p>
+            <p class="free-mono">{{ forloop.counter }}. {{ item.name }} - {{ item.value }}</p>
         {% endfor %}
     {% endif %}
 {% endblock %}

@@ -1,0 +1,14 @@
+{% extends "core/general.html" %}
+{% block title %}Список организаций{% endblock %}
+{% block content %}
+    {% if org_list %}
+            <h1 class="center free-mono bolt">
+                Список ваших организаций
+            </h1>
+                {% for item in org_list %}
+                    <div class="free-mono center">
+                        <a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
+                    </div>
+                {% endfor %}
+    {% endif %}
+{% endblock %}

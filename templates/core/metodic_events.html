@@ -1,7 +1,7 @@
 {% extends "core/general.html" %}
 {% block title %}Методические мероприятия{% endblock %}
-{% block content %}
-    <h1 style="font-size: 40px; text-align: center; color: black; font-family: Luminari, fantasy">Методические мероприятия</h1>
+{% block second_menu %}
+    <h1 class="center luminari bolt" style="font-size: 40px;">Методические мероприятия</h1>
     {% for item in queryset %}
         <p style="font-size: 25px; text-align: center; font-family: FreeMono, monospace"><a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
     {% endfor %}

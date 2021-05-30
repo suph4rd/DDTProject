@@ -1,4 +1,6 @@
 from django import forms
+from django.contrib.auth.hashers import make_password
+
 from core import models
 from django.contrib.auth.forms import AuthenticationForm
 
@@ -12,12 +14,16 @@ class CustomAuthenticationForm(AuthenticationForm):
 
 
 class UserAdminForm(forms.ModelForm):
-    password = forms.PasswordInput()
+    password = forms.CharField(
+        label="Пароль"
+    )
 
     def save(self, commit=True):
         # Save the provided password in hashed format
         user = super().save(commit=False)
-        if user.password != self.cleaned_data["password"]:
+        print(user.password)
+        print(make_password(self.cleaned_data["password"]))
+        if user.password != make_password(self.cleaned_data["password"]):
             user.set_password(self.cleaned_data["password"])
         if commit:
             user.save()

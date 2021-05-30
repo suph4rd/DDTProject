@@ -24,6 +24,7 @@ def get_org_list(request):
     """Достаёт организации по пользователю"""
     return models.User.objects.get(pk=request.user.id).organizationmetod_set.all()
 
+
 @login_required
 def logout_view(request):
     """Выход"""
@@ -33,24 +34,18 @@ def logout_view(request):
 
 @login_required
 def main_page(request):
-    org_list = get_org_list(request)
     return render(request, "core/general.html", locals())
 
 
 @login_required
 def udo_view(request):
-    org_list = get_org_list(request)
-    district = request.GET.get('district', None)
-    district_name = [x[1] for x in models.DISTRICT_CHOICE if str(x[0]) == district]
-    district_name = district_name[0] if len(district_name)==1 else None
-    queryset = models.Udo.objects.filter(district=district) if district else models.Udo.objects.all()
+    queryset = models.Udo.objects.all()
     queryset_count = queryset.count()
     return render(request, "core/udo.html", locals())
 
 
 @login_required
 def staff_view(request):
-    org_list = get_org_list(request)
     form = forms.StaffModelForm()
     if not request.GET.get('type', None):
         return render(request, "core/staff.html", locals())
@@ -69,19 +64,16 @@ def staff_view(request):
 
 @login_required
 def create_team_view(request):
-    org_list = get_org_list(request)
     return render(request, "core/create_team.html", locals())
 
 
 @login_required
 def result_participation_view(request):
-    org_list = get_org_list(request)
     return render(request, "core/result_participation.html", locals())
 
 
 @login_required
 def union_interes_view(request):
-    org_list = get_org_list(request)
     form = UnionInteresModelForm()
     if not request.GET.get('type', None):
         return render(request, "core/union_interes.html", locals())
@@ -102,13 +94,11 @@ def union_interes_view(request):
 
 @login_required
 def info_about_personal_view(request):
-    org_list = get_org_list(request)
     return render(request, "core/info_about_personal.html", locals())
 
 
 @login_required
 def npa_view(request):
-    org_list = get_org_list(request)
     queryset = models.Regulations.objects.all()
     MEDIA_URL = settings.MEDIA_URL
     return render(request, "core/npa.html", locals())
@@ -116,7 +106,6 @@ def npa_view(request):
 
 @login_required
 def metodic_events_view(request):
-    org_list = get_org_list(request)
     queryset = models.MetodicEvent.objects.all()
     MEDIA_URL = settings.MEDIA_URL
     return render(request, "core/metodic_events.html", locals())
@@ -124,11 +113,21 @@ def metodic_events_view(request):
 
 @login_required
 def support_platform_view(request):
-    org_list = get_org_list(request)
     return render(request, "core/support_platform.html", locals())
 
 
 @login_required
 def map_view(request):
-    org_list = get_org_list(request)
+    district = request.GET.get('district', None)
+    district_name = [x[1] for x in models.DISTRICT_CHOICE if str(x[0]) == district]
+    district_name = district_name[0] if len(district_name)==1 else None
+    if district:
+        queryset = models.Udo.objects.filter(district=district)
+        queryset_count = queryset.count()
     return render(request, "core/map.html", locals())
+
+
+@login_required
+def list_organization_view(request):
+    org_list = get_org_list(request)
+    return render(request, "core/user_organizations.html", locals())

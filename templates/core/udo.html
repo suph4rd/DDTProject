@@ -1,17 +1,5 @@
 {% extends "core/general.html" %}
 {% block title %}УДОДиМ{% endblock %}
-{% block content %}
-    <span style="font-size: 40px; text-align: center; color: black; font-family: Luminari, fantasy">
-        Учреждения дополнительного образования
-        {% if district_name %}
-            <p>{{ district_name }}</p>
-        {% endif %}
-    </span>
-    {% if queryset_count %}
-        {% for item in queryset %}
-            <p style="font-size: 25px; text-align: center; font-family: FreeMono, monospace"><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
-        {% endfor %}
-    {% else %}
-        <p style="text-align: center; font-size: 25px; font-family: FreeMono, monospace">Учреждения дополнительного образования отсутствуют!</p>
-    {% endif %}
+{% block second_menu %}
+    {% include 'core/udo_content.html' %}
 {% endblock %}
