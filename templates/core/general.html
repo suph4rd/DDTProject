@@ -19,10 +19,10 @@
         <div class="first-head row nav">
             <a class="col-2 btn first-head-item" href="http://gomelpalace.by">Официальный сайт</a>
             <div class="col-5 first-head-item" style="margin-top: 5px">
-                <b class="free-mono">Пользователь:</b> {{ request.user.fio }} <br/>
+                <b>Пользователь:</b> {{ request.user.fio }} <br/>
             </div>
             <div class="col-4 first-head-item" style="margin-top: 5px">
-                <b class="free-mono">Должность:</b> {{ request.user.position }}
+                <b>Должность:</b> {{ request.user.position }}
             </div>
             <a class="col-1 btn first-head-item" href="{% url 'logout' %}">Выход</a>
         </div>
@@ -30,22 +30,22 @@
     {#            <img style="width: 8%" src="{% static 'icons/logo.png' %}" alt="Эмблема организации">#}
             <div class="col-sm-4">
                 <div>
-                    <span class="free-mono"><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
+                    <span><b>УО "Гомельский государственный областной Дворец творчества детей и молодежи"</b></span> <br/>
 {#                    <span><em>г.Гомель, ул.Пролетарская, 2</em></span> <br/>#}
                     <span><em>Email: uoggodtdum@uoggodtdum.by</em></span> <br>
                     <span><em>Телефон: +123-456-789</em></span>
                 </div>
             </div>
-            <a class="col btn luminari center" href="{% url "main_page" %}"><span>
+            <a class="col btn  center" href="{% url "main_page" %}"><span>
                 <b>ГЛАВНАЯ СТРАНИЦА</b>
             </span></a>
-            <a class="col btn luminari center" href="{% url 'map' %}"><span>
+            <a class="col btn  center" href="{% url 'map' %}"><span>
                 <b>КАРТА</b>
             </span></a>
-            <a class="col btn luminari center" href="{% url 'info_about_personal_view' %}"><span>
+            <a class="col btn  center" href="{% url 'info_about_personal_view' %}"><span>
                 <b>ИНФОРМАЦИЯ О СОТРУДНИКАХ</b>
             </span></a>
-            <a class="col btn luminari center" href="{% url 'npa_view' %}"><span>
+            <a class="col btn  center" href="{% url 'npa_view' %}"><span>
                 <b>НОРМАТИВНЫЕ ДОКУМЕНТЫ</b>
             </span></a>
         </div>
@@ -64,22 +64,22 @@
             </div>
         </div>
             <div class="row" style="margin-top: 350px; margin-left: 1px; margin-right: 1px">
-                <a class="col col-general free-mono" style="background-color: red;" href="{% url 'udo_view' %}">
+                <a class="col-2 col-general" style="background-color: #89848a;" href="{% url 'udo_view' %}">
                     Учреждения дополнительного образования
                 </a>
-                <a class="col col-general free-mono" style="background-color: greenyellow;" href="{% url 'staff' %}">
+                <a class="col-2 col-general" style="background-color: #b7aea9;" href="{% url 'staff' %}">
                     Кадры
                 </a>
-                <a class="col col-general free-mono" style="background-color: orangered;" href="{% url 'metodic_events_view' %}">
+                <a class="col-2 col-general" style="background-color: #89848a;" href="{% url 'metodic_events_view' %}">
                     Методические мероприятия
                 </a>
-                <a class="col col-general free-mono" style="background-color: blue;" href="{% url 'union_interes_view' %}">
+                <a class="col-2 col-general" style="background-color: #b7aea9;" href="{% url 'union_interes_view' %}">
                     Объединения по интересам
                 </a>
-                <a class="col col-general free-mono" style="background-color: pink;" href="{% url 'create_team_view' %}">
+                <a class="col-2 col-general" style="background-color: #89848a;" href="{% url 'create_team_view' %}">
                     Творческие коллективы
                 </a>
-                <a class="col col-general free-mono" style="background-color: orange;" href="{% url 'result_participation_view' %}">
+                <a class="col-2 col-general" style="background-color: #b7aea9;" href="{% url 'result_participation_view' %}">
                     Результативность участия
                 </a>
             </div>
@@ -94,15 +94,17 @@
 </div>
     <style>
         .body {
-            background-image: url({% static 'icons/background003.jpg' %});
-            background-size: cover;
+            {#background-image: url({% static 'icons/background003.jpg' %});#}
+            {#background-size: cover;#}
+            background-color: #bfd2e0;
             margin: 10px;
          }
         .first-head {
             margin: 1px;
-            background-color: grey;
+            background-color: #69849b;
             border: 1px solid lightgray;
             border-radius: 3px;
+            font-family: 'Proxima Nova';
         }
         .first-head-item {
             color: white;
@@ -111,9 +113,10 @@
         }
         .second-head {
             margin: 1px;
-            background-color: white;
+            background-color: #d0c3bd;
             border: 1px solid lightgray;
             border-radius: 3px;
+            font-family: 'Open Sans';
         }
         .standart-content {
             {#padding: 10px;#}
@@ -127,11 +130,12 @@
         }
 
         .col-general {
-            border: 1px solid black;
+            {#border: 1px solid black;#}
             color: white;
             font-weight: bold;
+            font-family: 'Open Sans';
             text-align: center;
-            font-size: 25px;
+            font-size: 20px;
             border-radius: 10px;
         }
         a {
@@ -150,6 +154,13 @@
         .luminari {
             font-family: Luminari, fantasy
         }
+        .open-sans {
+            font-family: 'Open Sans';
+        }
+        .proxima-nova {
+            font-family: 'Proxima Nova';
+        }
+
 
         .bolt {
             font-weight: bold;
@@ -160,10 +171,12 @@
     <script>
         $(".col-general").on('mouseover', function(event) {
             console.log(event.currentTarget)
-            event.currentTarget.style.margin ="10px"
+            event.currentTarget.style.marginTop ="10px"
+            event.currentTarget.style.marginBottom ="10px"
         });
         $(".col-general").on('mouseout', function(event) {
-            event.currentTarget.style.margin ="0px"
+            event.currentTarget.style.marginTop ="0px"
+            event.currentTarget.style.marginBottom ="0px"
         });
     </script>
 </body>
