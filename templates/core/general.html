@@ -56,14 +56,14 @@
     {% block content %}
         <div class="general-contect">
         <div class="row justify-content-between">
-            <h2 class="col-4 luminari center bolt" style="color: white;">Методический кабинет</h2>
+{#            <h2 class="col-4 luminari center bolt" style="color: white;">Методический кабинет</h2>#}
 
-            <div class="col-4">
+            <div style="margin-left: 63%">
                 <a class="btn center blot" style="color: white;" href="{% url 'list_organization_view' %}"><h3>Закрепленные организации</h3></a> <br>
                 <a class="btn center bolt" style="color: white;" href="{% url 'support_platform' %}"><h3>Опорные площадки</h3></a>
             </div>
         </div>
-            <div class="row" style="margin-top: 350px; margin-left: 1px; margin-right: 1px">
+            <div class="row" style="margin-top: 550px; margin-left: 1px; margin-right: 1px">
                 <a class="col-2 col-general" style="background-color: #89848a;" href="{% url 'udo_view' %}">
                     Учреждения дополнительного образования
                 </a>
@@ -135,7 +135,7 @@
             font-weight: bold;
             font-family: 'Open Sans';
             text-align: center;
-            font-size: 15px;
+            font-size: 20px;
             border-radius: 10px;
         }
         a {
