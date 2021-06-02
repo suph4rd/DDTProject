@@ -1,15 +1,15 @@
-<h1 class="luminari center bolt">
+<h1 class="'Helvetica Neue',Helvetica, Arial center ">
         Учреждения дополнительного образования
     </h1>
     {% if district_name %}
-        <h2 class="luminari center">
+        <h2 class="'Helvetica Neue',Helvetica, Arial center">
             {{ district_name }}
         </h2>
     {% endif %}
     {% if queryset_count %}
         {% for item in queryset %}
-            <p class="center free-mono" style="font-size: 25px;"><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p>
+            <p class="center 'Helvetica Neue',Helvetica, Arial" style="font-size: 25px;"><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p>
         {% endfor %}
     {% else %}
-        <p class="center free-mono" style="font-size: 25px;">Учреждения дополнительного образования отсутствуют!</p>
+        <p class="center 'Helvetica Neue',Helvetica, Arial" style="font-size: 25px;">Учреждения дополнительного образования отсутствуют!</p>
     {% endif %}
