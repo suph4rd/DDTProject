@@ -6,7 +6,8 @@
     <h1 class=" center" style= "color: #711ac1;font-family: 'Helvetica Neue',Helvetica, Arial, sans-serif;" >Карта Гомельской области</h1>
 
     <div>
-        <img style="position:absolute; margin-left: 25%" src="{% static 'map/Gomel-obl_rai.jpg' %}" alt="">
+{#        <img style="position:absolute; margin-left: 25%" src="{% static 'map/Gomel-obl_rai.jpg' %}" alt="">#}
+        <img style="position:absolute; margin-left: 25%; width: 600px; height: 455px" src="{% static 'map/region.png' %}" alt="">
 
         <svg style="position: absolute; width: 1140px; height: 800px; margin-left: 25%" viewBox="0 0 1140 800">
 
@@ -127,6 +128,8 @@
         <div style="margin-top: 510px">
             {% include 'core/udo_content.html' %}
         </div>
+    {% else %}
+        <div style="margin-top: 510px"></div>
     {% endif %}
 
 
