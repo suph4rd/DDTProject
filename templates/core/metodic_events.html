@@ -1,8 +1,10 @@
 {% extends "core/general.html" %}
 {% block title %}Методические мероприятия{% endblock %}
 {% block second_menu %}
-    <h1 class="center 'Helvetica Neue',Helvetica, Arial,  sans-serif " style="font-size: 30px;">Методические мероприятия</h1>
+    <h1 class="center bolt " style="font-size: 25px; color: #711ac1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Методические мероприятия</h1>
     {% for item in queryset %}
-        <p style="font-size: 25px; text-align: center; font-family: 'Helvetica Neue',Helvetica, Arial,  sans-serif"><a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
+        <p style="font-size: 25px; text-align: center; font-family: 'Helvetica Neue',Helvetica, Arial,  sans-serif"><a href="{{ MEDIA_URL }}{{ item.file }}" style="    font-weight: 600;
+    color: #711ac1;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">{{ forloop.counter }}. {{ item.name }}</a></p> <br/>
     {% endfor %}
 {% endblock %}

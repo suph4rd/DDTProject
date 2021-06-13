@@ -1,12 +1,24 @@
 {% extends "core/general.html" %}
 {% block title %}НПА{% endblock %}
 {% block content %}
-    <h1 class="'Helvetica Neue',Helvetica, Arial,  sans-serif center bolt">Нормативно-правовые акты</h1>
-    <div style="font-size: 25px">
+<div style="background-color: #bad5dc;">
+    <h1 class=" center bolt "style="font-size: 30px;
+    color: #711ac1;">Нормативно-правовые акты</h1>
+    <div style="display: flex;
+    font-size: 25px;
+    color: #711ac1;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;">
     {% for item in queryset %}
-        <p class="free-mono">
-            <a href="{{ MEDIA_URL }}{{ item.file }}">{{ forloop.counter }}. {{ item.name }}</a>
+        <p class="free-mono" style="margin: 0;
+    margin-bottom: -3vh;">
+            <a href="{{ MEDIA_URL }}{{ item.file }}" style="color: #565556;
+    font-size: 20px;
+    font-weight: bold;">{{ forloop.counter }}. {{ item.name }}</a>
         </p> <br/>
     {% endfor %}
     </div>
 {% endblock %}
+</div>

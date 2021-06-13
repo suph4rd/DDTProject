@@ -1,17 +1,20 @@
 {% extends "core/general.html" %}
 {% block title %}Объединения по интересам{% endblock %}
 {% block second_menu %}
-    <h1 class="center 'Helvetica Neue',Helvetica, Arial">Объединения по интересам</h1>
+<div class="center">
+    <h1 class="center bolt "style="font-size: 25px; color: #711ac1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Объединения по интересам</h1>
     <form method="get">
-        <p>{{ form.type.label }}: {{ form.type }}</p>
+        <p style="color: #711acd;
+    font-size: 20px;
+    font-weight: bold;">{{ form.type.label }}: {{ form.type }}</p>
         {% if profile_choice_count %}
             <p class="free-mono">{{ form.profile.label }}: {{ form.profile }}</p>
         {% endif %}
-        <input type="submit" value="Отправить"> <br><hr>
+        <input type="submit" value="Отправить" style="background-color: rgb(116, 206, 228); font-family: 'Helvetica Neue',Helvetica, Arial, sans-serif;border-radius: 15px;border: 0px solid lightgray;color: white"> <br><hr>
     </form>
     {% if object %}
         <p class="free-mono">Групп - {{ object.group_value }}</p>
         <p class="free-mono">Учащихся - {{ object.people_value }}</p>
     {% endif %}
-
+</div>
 {% endblock %}

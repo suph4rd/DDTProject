@@ -1,15 +1,17 @@
-<h1 class="'Helvetica Neue',Helvetica, Arial center ">
+<h1 class=" center bolt "style="font-size: 25px; color: #711ac1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
         Учреждения дополнительного образования
     </h1>
     {% if district_name %}
-        <h2 class="'Helvetica Neue',Helvetica, Arial center">
+        <h2 class=" center"style="font-size: 20px; color: #711ac1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
             {{ district_name }}
         </h2>
     {% endif %}
     {% if queryset_count %}
         {% for item in queryset %}
-            <p class="center 'Helvetica Neue',Helvetica, Arial" style="font-size: 25px;"><a href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a></p>
+            <p class="center" style="font-size: 20px;"><a href="{{ item.href }}" style="    font-weight: 600;
+    color: #711ac1;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">{{ forloop.counter }}. {{ item.name }}</a></p>
         {% endfor %}
     {% else %}
-        <p class="center 'Helvetica Neue',Helvetica, Arial" style="font-size: 25px;">Учреждения дополнительного образования отсутствуют!</p>
+        <p class="center " style="font-size: 20px; color: #711ac1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">Учреждения дополнительного образования отсутствуют!</p>
     {% endif %}
