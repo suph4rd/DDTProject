@@ -86,7 +86,7 @@ def union_interes_view(request):
     profile_choice_count = models.UnionInteresProfile.objects.count()
     form.fields['profile'].queryset = models.UnionInteresProfile.objects.all()
     if request.GET.get('profile'):
-        object = models.UnionInteres.objects.filter(type=request.GET.get('profile')).last()
+        object = models.UnionInteres.objects.filter(profile=request.GET.get('profile')).last()
     else:
         object = None
     return render(request, "core/union_interes.html", locals())
