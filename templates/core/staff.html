@@ -15,7 +15,9 @@
 
     {% if queryset %}
         {% for item in queryset %}
-            <p class="free-mono">{{ forloop.counter }}. {{ item.name }} - {{ item.value }}</p>
+            <p class="free-mono" style="color: #711acd;
+    font-size: 20px;
+    font-weight: bold;">{{ forloop.counter }}. {{ item.name }} - {{ item.value }}</p>
         {% endfor %}
     {% endif %}
 </div>

@@ -1,9 +1,12 @@
-<div style="background-color: #bad5dc;">
+
 {% extends "core/general.html" %}
+
 {% block title %}Список организаций{% endblock %}
+
 {% block content %}
+<div style="background-color: #bad5dc; height: 100vh">
     {% if org_list %}
-            <h1 class="center free-mono bolt" style="font-size: 25px; margin-top: 15px; color: #0061ff; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+            <h1 class="center free-mono bolt" style="font-size: 25px; margin-top: 15px; color: #711ac1; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
                 Список ваших организаций
             </h1>
                 {% for item in org_list %}
@@ -13,9 +16,9 @@
     color: #0061ff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     justify-content: center;" >
-                        <a  style=" color: #9ba39b;padding-right; font-size: 25px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
+                        <a  style=" color: #0061ff;padding-right; font-size: 25px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;" href="{{ item.href }}">{{ forloop.counter }}. {{ item.name }}</a> <br>
                     </div>
                 {% endfor %}
     {% endif %}
+    </div>
 {% endblock %}
-</div>
