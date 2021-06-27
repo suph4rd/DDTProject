@@ -12,8 +12,7 @@
     flex-wrap: wrap;
     align-items: left;">
     {% for item in queryset %}
-        <p class="free-mono" style="margin: 0;
-    margin-bottom: -3vh;">
+        <p class="free-mono">
             <a href="{{ MEDIA_URL }}{{ item.file }}" style="color: #565556;
     font-size: 20px;
     font-weight: bold;">{{ forloop.counter }}. {{ item.name }}</a>
