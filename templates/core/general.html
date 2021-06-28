@@ -155,27 +155,32 @@ margin-bottom: 45px;">
 
     {% endblock %}
     </div>
-            <div class=" row nav helvetica-neue " style="position: absolute;
-        padding: 20px 30px;
-    border-radius: 5px;
-    background-color: #495052;
-    display: flex;
-    width: 97vw;
-    margin: 0 15px;
-    align-items: center;
-justify-content: space-between;">
 
+    {% block footer %}
+        <div class=" row nav helvetica-neue " style="position: absolute;
+                padding: 20px 30px;
+                border-radius: 5px;
+                background-color: #495052;
+                display: flex;
+                width: 97vw;
+                margin: 0 15px;
+                align-items: center;
+                justify-content: space-between;">
 
              <span style="    text-align: center;
     margin-left: 5px;
     color: #9ba39b;
     max-width: 250px;
 }"> УО "Гомельский государственный областной Дворец творчества детей и молодежи" </span>
-                   <span style="    color: #9ba39b;"><em>г.Гомель, ул.Пролетарская, 2</em></span>
-                   <span style="    color: #9ba39b;"><em>Email: uoggodtdum@uoggodtdum.by</em></span>
-                    <span style="    color: #9ba39b;"><em>Телефон: +123-456-789</em></span>
-            <a class="col-1 btn first-head-item helvetica-neue " href="{% url 'logout' %}">Выход</a>
+             <span style="    color: #9ba39b;"><em>г.Гомель, ул.Пролетарская, 2</em></span>
+             <span style="    color: #9ba39b;"><em>Email: uoggodtdum@uoggodtdum.by</em></span>
+             <span style="    color: #9ba39b;"><em>Телефон: +123-456-789</em></span>
+             <a class="col-1 btn first-head-item helvetica-neue " href="{% url 'logout' %}">Выход</a>
         </div>
+    {% endblock %}
+
+
+
 </div>
     <style>
         .body {
