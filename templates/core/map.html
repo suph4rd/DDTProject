@@ -8,8 +8,7 @@
     <div>
 {#        <img style="position:absolute; margin-left: 25%" src="{% static 'map/Gomel-obl_rai.jpg' %}" alt="">#}
         <img style="position:absolute; margin-left: 25%; width: 600px; height: 455px" src="{% static 'map/region.png' %}" alt="">
-
-        <svg style="position: absolute; width: 1140px; height: 800px; margin-left: 25%" viewBox="0 0 1140 800">
+        <svg style="position: absolute; width: 1140px; height: 800px; margin-left: 25%; z-index: 1" viewBox="0 0 1140 800" >
 
             <a href="{% url 'map' %}?district=1">
 {#               1 Житковичи#}
@@ -125,7 +124,7 @@
     </div>
 
     {% if queryset_count or queryset_count == 0 %}
-        <div style="margin-top: 810px">
+        <div style="margin-top: 510px; z-index: 33">
             {% include 'core/udo_content.html' %}
         </div>
     {% else %}
